@@ -1,0 +1,15 @@
+{
+  "name": "energia-dlls",
+  "version-string": "1.0",
+  "description": "Dependencias de las DLL de modelos de EnergIA (se instalan solas al compilar)",
+  "dependencies": [
+    "mlpack",
+    "armadillo",
+    "cereal",
+    {
+      "name": "ensmallen",
+      "default-features": false
+    }
+  ],
+  "builtin-baseline": "8e89ad1130ff5c31ca1ff673842c645519a221ad"
+}

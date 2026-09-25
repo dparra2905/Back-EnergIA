@@ -1,0 +1,24 @@
+# Carpetas de compilación
+build/
+**/build/
+build-*/
+out/
+vcpkg_installed/
+
+# Visual Studio / VS Code
+.vs/
+*.user
+
+# Binarios generados
+*.obj
+*.pdb
+*.ilk
+*.exp
+*.lib
+*.exe
+
+# Qt Creator
+.qtcreator/
+
+# Clon local de vcpkg
+dlls/vcpkg/
