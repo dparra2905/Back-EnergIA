@@ -746,14 +746,6 @@ Son pruebas de funcionamiento, no resultados de la tesis. Los cálculos de energ
 
 HEPMASS se eligió porque es libre, viene con encabezado, ya está normalizado (servirá igual para el MLP) y hace que el entrenamiento dure varios minutos, lo suficiente para medir bien con muestras de 1 segundo. Se descartó SUSY porque no trae encabezado, y Wine porque entrena en muy poco tiempo.
 
-### 9.3 Hallazgos que afectan el post-proceso
-
-1. **El contador de energía del Atorch no sirve para estas mediciones.** `energy_kwh` tiene una resolución de 0,01 kWh, que equivale a 36 kJ: más de cinco veces toda la energía de la corrida de HEPMASS (el contador no se movió). La energía se debe calcular **integrando `power_w`** en el tiempo.
-2. **Hay un efecto de borde.** La primera muestra después de `t_despues` todavía incluye el final del entrenamiento (en HEPMASS, la estabilización post tuvo un máximo de 41,2 W y una desviación de 6,37 W). El post-proceso debería descartar el primer y el último segundo de cada ventana, o repartirlos según cuánto se traslapan.
-3. **Un segundo de resolución no alcanza para pasos cortos.** Un paso que dura menos de un segundo (un árbol pequeño de un bosque, por ejemplo) no se puede aislar: su energía se tendrá que estimar repartiendo o agrupando pasos.
-4. **La línea base posterior fue más ruidosa que la anterior** en la prueba con Wine, posiblemente por la carga de la batería del portátil. Esto sugiere definir un protocolo de laboratorio (nivel de batería, brillo de pantalla, programas cerrados).
-5. **La métrica útil es la energía neta** (energía del entrenamiento menos la línea base), no la energía bruta.
-
 ---
 
 ## 10. Qué falta
